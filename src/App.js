@@ -1,56 +1,78 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useEffect } from "react";
+import "./App.css";
+import Home from "./features/Pages/Home";
+import LoginPage from "./features/Pages/LoginPage";
+import SignupPage from "./features/Pages/SignupPage";
+import CartPage from "./features/Pages/CartPage";
+import ProductDetails from "./features/product/components/ProductDetails";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
+import Checkout from "./features/Pages/Checkout";
+import ProductDetailspage from "./features/Pages/ProductDetailsPage";
+import Protected from "./features/auth/components/Protected";
+import { useDispatch, useSelector } from "react-redux";
+import { selectLoggedInUser } from "./features/auth/loginSlice";
+import { fetchAllProductByIdAsync } from "./features/product/ProductSlice";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <Protected>
+        <Home></Home>
+      </Protected>
+    ),
+  },
+  {
+    path: "/signup",
+    element: <SignupPage></SignupPage>,
+  },
+  {
+    path: "/login",
+    element: <LoginPage></LoginPage>,
+  },
+  {
+    path: "/carts",
+    element: (
+      <Protected>
+        <CartPage></CartPage>
+      </Protected>
+    ),
+  },
+  {
+    path: "/checkout",
+    element: (
+      <Protected>
+        <Checkout></Checkout>
+      </Protected>
+    ),
+  },
+  {
+    path: "/product-details/:id",
+    element: (
+      <Protected>
+        <ProductDetailspage></ProductDetailspage>
+      </Protected>
+    ),
+  },
+]);
 
 function App() {
+  const dispatch=useDispatch();
+  const user=useSelector(selectLoggedInUser);
+  useEffect(()=>{
+    if(user){
+    dispatch(fetchAllProductByIdAsync(user.id))
+    }
+  },[dispatch,user])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      {/* <Home></Home> */}
+      <RouterProvider router={router} />
     </div>
   );
 }
