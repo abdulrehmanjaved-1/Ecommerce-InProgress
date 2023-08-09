@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { createUserAsync,selectLoggedInUser } from "../loginSlice";
+import { createUserAsync, selectLoggedInUser } from "../loginSlice";
 import { Link, Navigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 export default function Signup() {
   const dispatch = useDispatch();
-  const user=useSelector(selectLoggedInUser)
+  const user = useSelector(selectLoggedInUser);
   const {
     register,
     handleSubmit,
@@ -15,7 +15,7 @@ export default function Signup() {
   console.log(errors);
   return (
     <>
-          {user && <Navigate to="/" replace={true}></Navigate>}
+      {user && <Navigate to="/" replace={true}></Navigate>}
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
@@ -33,7 +33,14 @@ export default function Signup() {
             noValidate
             className="space-y-6"
             onSubmit={handleSubmit((data) => {
-              dispatch(createUserAsync({email:data.email,password:data.password,addresses:[]}))
+              dispatch(
+                createUserAsync({
+                  email: data.email,
+                  password: data.password,
+                  addresses: [],
+                  role:'user'
+                })
+              );
               console.log(data);
             })}
           >
@@ -52,7 +59,7 @@ export default function Signup() {
                     pattern: {
                       value: /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/,
                       message: "Email not valid",
-                    }
+                    },
                   })}
                   type="email"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -72,12 +79,12 @@ export default function Signup() {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a
-                    href="#"
+                  <Link
+                    to="/forgot-password"
                     className="font-semibold text-indigo-600 hover:text-indigo-500"
                   >
                     Forgot password?
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="mt-2">
@@ -86,14 +93,13 @@ export default function Signup() {
                   {...register("password", {
                     required: "Password is required",
                     pattern: {
-                      value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+                      value:
+                        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
                       message: `- At least 8 characters
                   - Must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number
                   - Can contain special characters`,
                     },
                   })}
-                  
-                 
                   type="password"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -119,7 +125,8 @@ export default function Signup() {
                   id="confirmPassword"
                   {...register("confirmPassword", {
                     required: "password confirmation is required",
-                    validate: (value, formValues) => value === formValues.password || "password not matching"
+                    validate: (value, formValues) =>
+                      value === formValues.password || "password not matching",
                   })}
                   type="password"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"

@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 1,
-      "title": "iPhone 9",
+      "title": "iPhone 9x",
       "description": "An apple mobile which is nothing like apple",
       "price": 549,
       "discountPercentage": 12.96,
@@ -15,13 +15,12 @@
         "https://i.dummyjson.com/data/products/1/1.jpg",
         "https://i.dummyjson.com/data/products/1/2.jpg",
         "https://i.dummyjson.com/data/products/1/3.jpg",
-        "https://i.dummyjson.com/data/products/1/4.jpg",
         "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
       ]
     },
     {
       "id": 2,
-      "title": "iPhone X",
+      "title": "iPhone X1",
       "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
       "price": 899,
       "discountPercentage": 17.94,
@@ -39,7 +38,7 @@
     },
     {
       "id": 3,
-      "title": "Samsung Universe 9",
+      "title": "Samsung Universe 90",
       "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
       "price": 1249,
       "discountPercentage": 15.46,
@@ -49,7 +48,10 @@
       "category": "smartphones",
       "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
       "images": [
-        "https://i.dummyjson.com/data/products/3/1.jpg"
+        "https://i.dummyjson.com/data/products/3/1.jpg",
+        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.britishchamber.cn%2Fen%2Fdata-privacy-and-ai-tech-updates%2F&psig=AOvVaw3VG5fort-0eAHvhUzFZ8Us&ust=1691659665785000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPCky76hz4ADFQAAAAAdAAAAABAF",
+        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fvisitorcenter%2Fdefault&psig=AOvVaw24VrzEBt7FTHnyGuIRgw9y&ust=1691659796401000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCODC5_yhz4ADFQAAAAAdAAAAABAE",
+        "https://i.dummyjson.com/data/products/3/thumbnail.jpg"
       ]
     },
     {
@@ -1838,6 +1840,61 @@
         "https://i.dummyjson.com/data/products/100/3.jpg",
         "https://i.dummyjson.com/data/products/100/thumbnail.jpg"
       ]
+    },
+    {
+      "title": "My Next Year",
+      "description": "Let's Choose To be ...",
+      "brand": "Apple",
+      "category": "smartphones",
+      "price": 1000,
+      "discountPercentage": 1,
+      "stock": 1,
+      "thumbnail": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.theforage.com%2Fblog%2Fcompanies%2Fwhat-companies-in-technology-field&psig=AOvVaw1yfhDv7IP3jUpotm5SK5B9&ust=1691659561959000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJCol42hz4ADFQAAAAAdAAAAABAE",
+      "images": [
+        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fhackanons.com%2F2022%2F11%2Ffull-stack-vs-mean-stack-vs-mern-stack.html&psig=AOvVaw2K9w4xjWOj5hNw75rsmswa&ust=1691659612822000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKjaj6Whz4ADFQAAAAAdAAAAABAE",
+        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.britishchamber.cn%2Fen%2Fdata-privacy-and-ai-tech-updates%2F&psig=AOvVaw3VG5fort-0eAHvhUzFZ8Us&ust=1691659665785000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPCky76hz4ADFQAAAAAdAAAAABAF",
+        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fvisitorcenter%2Fdefault&psig=AOvVaw24VrzEBt7FTHnyGuIRgw9y&ust=1691659796401000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCODC5_yhz4ADFQAAAAAdAAAAABAE",
+        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.theforage.com%2Fblog%2Fcompanies%2Fwhat-companies-in-technology-field&psig=AOvVaw1yfhDv7IP3jUpotm5SK5B9&ust=1691659561959000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJCol42hz4ADFQAAAAAdAAAAABAE"
+      ],
+      "rating": 0,
+      "id": 101
+    },
+    {
+      "title": "iPhone 9x",
+      "description": "An apple mobile which is nothing like apple",
+      "brand": "Apple",
+      "category": "smartphones",
+      "price": 549,
+      "discountPercentage": 12.96,
+      "stock": 94,
+      "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/1/1.jpg",
+        "https://i.dummyjson.com/data/products/1/2.jpg",
+        "https://i.dummyjson.com/data/products/1/3.jpg",
+        "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+      ],
+      "rating": 0,
+      "id": 102,
+      "deleted": true
+    },
+    {
+      "title": "iPhone X1",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "brand": "Apple",
+      "category": "smartphones",
+      "price": 899,
+      "discountPercentage": 17.94,
+      "stock": 34,
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+      ],
+      "rating": 0,
+      "id": 103
     }
   ],
   "brands": [
@@ -2338,19 +2395,20 @@
     {
       "email": "abdulrehmanauth@gmail.com",
       "password": "abdul123@A",
+      "role": "user",
       "addresses": [
         {
           "name": "Abdulrehman Javed",
-          "email": "abdulrehmanauth@gmail.com",
-          "phone": "2657827391",
+          "email": "abdulrehmanjaed123@gmail.com",
+          "phone": "0324440838",
           "street": "strret ghulshan colony",
           "city": "Lahore",
           "state": "punjab",
           "pinCode": "154254"
         },
         {
-          "name": "Abdulrehman Javed",
-          "email": "abdulrehmanjaed123@gmail.com",
+          "name": "Aysha",
+          "email": "abdul@gmail.com",
           "phone": "0324440837",
           "street": "strret ghulshan colony",
           "city": "Lahore",
@@ -2359,138 +2417,39 @@
         }
       ],
       "id": 1
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "abdul123@A",
+      "role": "admin",
+      "addresses": [],
+      "id": 2
     }
   ],
-  "carts": [],
-  "orders": [
+  "carts": [
     {
-      "items": [
-        {
-          "title": "iPhone 9",
-          "description": "An apple mobile which is nothing like apple",
-          "price": 549,
-          "discountPercentage": 12.96,
-          "rating": 4.69,
-          "stock": 94,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/1/1.jpg",
-            "https://i.dummyjson.com/data/products/1/2.jpg",
-            "https://i.dummyjson.com/data/products/1/3.jpg",
-            "https://i.dummyjson.com/data/products/1/4.jpg",
-            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 1,
-          "id": 1
-        }
+      "title": "half sleeves T shirts",
+      "description": "Many store is creating new designs and trend every month and every year. Daraz.pk have a beautiful range of men fashion brands",
+      "price": 23,
+      "discountPercentage": 12.76,
+      "rating": 4.26,
+      "stock": 132,
+      "brand": "Vintage Apparel",
+      "category": "mens-shirts",
+      "thumbnail": "https://i.dummyjson.com/data/products/51/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/51/1.png",
+        "https://i.dummyjson.com/data/products/51/2.jpg",
+        "https://i.dummyjson.com/data/products/51/3.jpg",
+        "https://i.dummyjson.com/data/products/51/thumbnail.jpg"
       ],
-      "totalAmount": 549,
-      "totalItems": 1,
-      "user": {
-        "email": "abdulrehmanauth@gmail.com",
-        "password": "abdul123@A",
-        "addresses": [
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanauth@gmail.com",
-            "phone": "2657827391",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          },
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanjaed123@gmail.com",
-            "phone": "0324440837",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          }
-        ],
-        "id": 1
-      },
-      "paymentMethod": "card",
-      "selectedAddress": {
-        "name": "Abdulrehman Javed",
-        "email": "abdulrehmanjaed123@gmail.com",
-        "phone": "0324440837",
-        "street": "strret ghulshan colony",
-        "city": "Lahore",
-        "state": "punjab",
-        "pinCode": "154254"
-      },
-      "status": "pending",
+      "productId": 51,
+      "quantity": 1,
+      "user": 2,
       "id": 1
-    },
-    {
-      "items": [
-        {
-          "title": "iPhone 9",
-          "description": "An apple mobile which is nothing like apple",
-          "price": 549,
-          "discountPercentage": 12.96,
-          "rating": 4.69,
-          "stock": 94,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/1/1.jpg",
-            "https://i.dummyjson.com/data/products/1/2.jpg",
-            "https://i.dummyjson.com/data/products/1/3.jpg",
-            "https://i.dummyjson.com/data/products/1/4.jpg",
-            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 1,
-          "id": 2
-        }
-      ],
-      "totalAmount": 549,
-      "totalItems": 1,
-      "user": {
-        "email": "abdulrehmanauth@gmail.com",
-        "password": "abdul123@A",
-        "addresses": [
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanauth@gmail.com",
-            "phone": "2657827391",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          },
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanjaed123@gmail.com",
-            "phone": "0324440837",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          }
-        ],
-        "id": 1
-      },
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "name": "Abdulrehman Javed",
-        "email": "abdulrehmanjaed123@gmail.com",
-        "phone": "0324440837",
-        "street": "strret ghulshan colony",
-        "city": "Lahore",
-        "state": "punjab",
-        "pinCode": "154254"
-      },
-      "status": "pending",
-      "id": 2
-    },
+    }
+  ],
+  "orders": [
     {
       "items": [
         {
@@ -2509,29 +2468,94 @@
             "https://i.dummyjson.com/data/products/6/3.png",
             "https://i.dummyjson.com/data/products/6/4.jpg"
           ],
-          "quantity": 5,
+          "quantity": 2,
           "user": 1,
           "id": 1
         }
       ],
-      "totalAmount": 8745,
-      "totalItems": 5,
+      "totalAmount": 3112,
+      "totalItems": 2,
       "user": {
         "email": "abdulrehmanauth@gmail.com",
         "password": "abdul123@A",
+        "role": "user",
         "addresses": [
           {
             "name": "Abdulrehman Javed",
-            "email": "abdulrehmanauth@gmail.com",
-            "phone": "2657827391",
+            "email": "abdulrehmanjaed123@gmail.com",
+            "phone": "0324440838",
             "street": "strret ghulshan colony",
             "city": "Lahore",
             "state": "punjab",
             "pinCode": "154254"
           },
           {
+            "name": "Aysha",
+            "email": "abdul@gmail.com",
+            "phone": "0324440837",
+            "street": "strret ghulshan colony",
+            "city": "Lahore",
+            "state": "punjab",
+            "pinCode": "154254"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Aysha",
+        "email": "abdul@gmail.com",
+        "phone": "0324440837",
+        "street": "strret ghulshan colony",
+        "city": "Lahore",
+        "state": "punjab",
+        "pinCode": "154254"
+      },
+      "status": "delivered",
+      "id": 1
+    },
+    {
+      "items": [
+        {
+          "title": "Non-Alcoholic Concentrated Perfume Oil",
+          "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
+          "price": 120,
+          "discountPercentage": 15.6,
+          "rating": 4.21,
+          "stock": 114,
+          "brand": "Al Munakh",
+          "category": "fragrances",
+          "thumbnail": "https://i.dummyjson.com/data/products/14/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/14/1.jpg",
+            "https://i.dummyjson.com/data/products/14/2.jpg",
+            "https://i.dummyjson.com/data/products/14/3.jpg",
+            "https://i.dummyjson.com/data/products/14/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 101,
+      "totalItems": 1,
+      "user": {
+        "email": "abdulrehmanauth@gmail.com",
+        "password": "abdul123@A",
+        "role": "user",
+        "addresses": [
+          {
             "name": "Abdulrehman Javed",
             "email": "abdulrehmanjaed123@gmail.com",
+            "phone": "0324440838",
+            "street": "strret ghulshan colony",
+            "city": "Lahore",
+            "state": "punjab",
+            "pinCode": "154254"
+          },
+          {
+            "name": "Aysha",
+            "email": "abdul@gmail.com",
             "phone": "0324440837",
             "street": "strret ghulshan colony",
             "city": "Lahore",
@@ -2545,6 +2569,90 @@
       "selectedAddress": {
         "name": "Abdulrehman Javed",
         "email": "abdulrehmanjaed123@gmail.com",
+        "phone": "0324440838",
+        "street": "strret ghulshan colony",
+        "city": "Lahore",
+        "state": "punjab",
+        "pinCode": "154254"
+      },
+      "status": "cancelled",
+      "id": 2
+    },
+    {
+      "items": [
+        {
+          "title": "Leather Straps Wristwatch",
+          "description": "Style:Sport ,Clasp:Buckles ,Water Resistance Depth:3Bar",
+          "price": 120,
+          "discountPercentage": 7.14,
+          "rating": 4.63,
+          "stock": 91,
+          "brand": "Naviforce",
+          "category": "mens-watches",
+          "thumbnail": "https://i.dummyjson.com/data/products/61/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/61/1.jpg",
+            "https://i.dummyjson.com/data/products/61/2.png",
+            "https://i.dummyjson.com/data/products/61/3.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        },
+        {
+          "title": "Round Silver Frame Sun Glasses",
+          "description": "A pair of sunglasses can protect your eyes from being hurt. For car driving, vacation travel, outdoor activities, social gatherings,",
+          "price": 19,
+          "discountPercentage": 10.1,
+          "rating": 4.94,
+          "stock": 78,
+          "brand": "Designer Sun Glasses",
+          "category": "sunglasses",
+          "thumbnail": "https://i.dummyjson.com/data/products/81/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/81/1.jpg",
+            "https://i.dummyjson.com/data/products/81/2.jpg",
+            "https://i.dummyjson.com/data/products/81/3.jpg",
+            "https://i.dummyjson.com/data/products/81/4.webp",
+            "https://i.dummyjson.com/data/products/81/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 2
+        }
+      ],
+      "totalAmount": 128,
+      "totalItems": 2,
+      "user": {
+        "email": "abdulrehmanauth@gmail.com",
+        "password": "abdul123@A",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Abdulrehman Javed",
+            "email": "abdulrehmanjaed123@gmail.com",
+            "phone": "0324440838",
+            "street": "strret ghulshan colony",
+            "city": "Lahore",
+            "state": "punjab",
+            "pinCode": "154254"
+          },
+          {
+            "name": "Aysha",
+            "email": "abdul@gmail.com",
+            "phone": "0324440837",
+            "street": "strret ghulshan colony",
+            "city": "Lahore",
+            "state": "punjab",
+            "pinCode": "154254"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Aysha",
+        "email": "abdul@gmail.com",
         "phone": "0324440837",
         "street": "strret ghulshan colony",
         "city": "Lahore",
@@ -2557,43 +2665,46 @@
     {
       "items": [
         {
-          "title": "Huawei P30",
-          "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
-          "price": 499,
-          "discountPercentage": 10.58,
-          "rating": 4.09,
-          "stock": 32,
-          "brand": "Huawei",
+          "title": "iPhone X1",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 899,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
           "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
           "images": [
-            "https://i.dummyjson.com/data/products/5/1.jpg",
-            "https://i.dummyjson.com/data/products/5/2.jpg",
-            "https://i.dummyjson.com/data/products/5/3.jpg"
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
           ],
+          "productId": 2,
           "quantity": 1,
           "user": 1,
           "id": 1
         }
       ],
-      "totalAmount": 499,
+      "totalAmount": 738,
       "totalItems": 1,
       "user": {
         "email": "abdulrehmanauth@gmail.com",
         "password": "abdul123@A",
+        "role": "user",
         "addresses": [
           {
             "name": "Abdulrehman Javed",
-            "email": "abdulrehmanauth@gmail.com",
-            "phone": "2657827391",
+            "email": "abdulrehmanjaed123@gmail.com",
+            "phone": "0324440838",
             "street": "strret ghulshan colony",
             "city": "Lahore",
             "state": "punjab",
             "pinCode": "154254"
           },
           {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanjaed123@gmail.com",
+            "name": "Aysha",
+            "email": "abdul@gmail.com",
             "phone": "0324440837",
             "street": "strret ghulshan colony",
             "city": "Lahore",
@@ -2605,731 +2716,16 @@
       },
       "paymentMethod": "cash",
       "selectedAddress": {
-        "name": "Abdulrehman Javed",
-        "email": "abdulrehmanauth@gmail.com",
-        "phone": "2657827391",
+        "name": "Aysha",
+        "email": "abdul@gmail.com",
+        "phone": "0324440837",
         "street": "strret ghulshan colony",
         "city": "Lahore",
         "state": "punjab",
         "pinCode": "154254"
       },
-      "status": "pending",
+      "status": "delivered",
       "id": 4
-    },
-    {
-      "items": [
-        {
-          "title": "iPhone 9",
-          "description": "An apple mobile which is nothing like apple",
-          "price": 549,
-          "discountPercentage": 12.96,
-          "rating": 4.69,
-          "stock": 94,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/1/1.jpg",
-            "https://i.dummyjson.com/data/products/1/2.jpg",
-            "https://i.dummyjson.com/data/products/1/3.jpg",
-            "https://i.dummyjson.com/data/products/1/4.jpg",
-            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 1,
-          "id": 1
-        }
-      ],
-      "totalAmount": 549,
-      "totalItems": 1,
-      "user": {
-        "email": "abdulrehmanauth@gmail.com",
-        "password": "abdul123@A",
-        "addresses": [
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanauth@gmail.com",
-            "phone": "2657827391",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          },
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanjaed123@gmail.com",
-            "phone": "0324440837",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          }
-        ],
-        "id": 1
-      },
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "name": "Abdulrehman Javed",
-        "email": "abdulrehmanauth@gmail.com",
-        "phone": "2657827391",
-        "street": "strret ghulshan colony",
-        "city": "Lahore",
-        "state": "punjab",
-        "pinCode": "154254"
-      },
-      "status": "pending",
-      "id": 5
-    },
-    {
-      "items": [
-        {
-          "title": "Samsung Universe 9",
-          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-          "price": 1249,
-          "discountPercentage": 15.46,
-          "rating": 4.09,
-          "stock": 36,
-          "brand": "Samsung",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/3/1.jpg"
-          ],
-          "quantity": 1,
-          "user": 1,
-          "id": 1
-        }
-      ],
-      "totalAmount": 1249,
-      "totalItems": 1,
-      "user": {
-        "email": "abdulrehmanauth@gmail.com",
-        "password": "abdul123@A",
-        "addresses": [
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanauth@gmail.com",
-            "phone": "2657827391",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          },
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanjaed123@gmail.com",
-            "phone": "0324440837",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          }
-        ],
-        "id": 1
-      },
-      "paymentMethod": "card",
-      "selectedAddress": {
-        "name": "Abdulrehman Javed",
-        "email": "abdulrehmanjaed123@gmail.com",
-        "phone": "0324440837",
-        "street": "strret ghulshan colony",
-        "city": "Lahore",
-        "state": "punjab",
-        "pinCode": "154254"
-      },
-      "status": "pending",
-      "id": 6
-    },
-    {
-      "items": [
-        {
-          "title": "HP Pavilion 15-DK1056WM",
-          "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
-          "price": 1099,
-          "discountPercentage": 6.18,
-          "rating": 4.43,
-          "stock": 89,
-          "brand": "HP Pavilion",
-          "category": "laptops",
-          "thumbnail": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
-          "images": [
-            "https://i.dummyjson.com/data/products/10/1.jpg",
-            "https://i.dummyjson.com/data/products/10/2.jpg",
-            "https://i.dummyjson.com/data/products/10/3.jpg",
-            "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
-          ],
-          "quantity": 1,
-          "user": 1,
-          "id": 3
-        }
-      ],
-      "totalAmount": 1099,
-      "totalItems": 1,
-      "user": {
-        "email": "abdulrehmanauth@gmail.com",
-        "password": "abdul123@A",
-        "addresses": [
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanauth@gmail.com",
-            "phone": "2657827391",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          },
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanjaed123@gmail.com",
-            "phone": "0324440837",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          }
-        ],
-        "id": 1
-      },
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "name": "Abdulrehman Javed",
-        "email": "abdulrehmanauth@gmail.com",
-        "phone": "2657827391",
-        "street": "strret ghulshan colony",
-        "city": "Lahore",
-        "state": "punjab",
-        "pinCode": "154254"
-      },
-      "status": "pending",
-      "id": 7
-    },
-    {
-      "items": [
-        {
-          "title": "iPhone 9",
-          "description": "An apple mobile which is nothing like apple",
-          "price": 549,
-          "discountPercentage": 12.96,
-          "rating": 4.69,
-          "stock": 94,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/1/1.jpg",
-            "https://i.dummyjson.com/data/products/1/2.jpg",
-            "https://i.dummyjson.com/data/products/1/3.jpg",
-            "https://i.dummyjson.com/data/products/1/4.jpg",
-            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 1,
-          "id": 4
-        }
-      ],
-      "totalAmount": 549,
-      "totalItems": 1,
-      "user": {
-        "email": "abdulrehmanauth@gmail.com",
-        "password": "abdul123@A",
-        "addresses": [
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanauth@gmail.com",
-            "phone": "2657827391",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          },
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanjaed123@gmail.com",
-            "phone": "0324440837",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          }
-        ],
-        "id": 1
-      },
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "name": "Abdulrehman Javed",
-        "email": "abdulrehmanauth@gmail.com",
-        "phone": "2657827391",
-        "street": "strret ghulshan colony",
-        "city": "Lahore",
-        "state": "punjab",
-        "pinCode": "154254"
-      },
-      "status": "pending",
-      "id": 8
-    },
-    {
-      "items": [
-        {
-          "title": "iPhone 9",
-          "description": "An apple mobile which is nothing like apple",
-          "price": 549,
-          "discountPercentage": 12.96,
-          "rating": 4.69,
-          "stock": 94,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/1/1.jpg",
-            "https://i.dummyjson.com/data/products/1/2.jpg",
-            "https://i.dummyjson.com/data/products/1/3.jpg",
-            "https://i.dummyjson.com/data/products/1/4.jpg",
-            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 1,
-          "id": 1
-        }
-      ],
-      "totalAmount": 549,
-      "totalItems": 1,
-      "user": {
-        "email": "abdulrehmanauth@gmail.com",
-        "password": "abdul123@A",
-        "addresses": [
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanauth@gmail.com",
-            "phone": "2657827391",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          },
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanjaed123@gmail.com",
-            "phone": "0324440837",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          }
-        ],
-        "id": 1
-      },
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "name": "Abdulrehman Javed",
-        "email": "abdulrehmanjaed123@gmail.com",
-        "phone": "0324440837",
-        "street": "strret ghulshan colony",
-        "city": "Lahore",
-        "state": "punjab",
-        "pinCode": "154254"
-      },
-      "status": "pending",
-      "id": 9
-    },
-    {
-      "items": [
-        {
-          "title": "iPhone X",
-          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-          "price": 899,
-          "discountPercentage": 17.94,
-          "rating": 4.44,
-          "stock": 34,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/2/1.jpg",
-            "https://i.dummyjson.com/data/products/2/2.jpg",
-            "https://i.dummyjson.com/data/products/2/3.jpg",
-            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 1,
-          "id": 1
-        }
-      ],
-      "totalAmount": 899,
-      "totalItems": 1,
-      "user": {
-        "email": "abdulrehmanauth@gmail.com",
-        "password": "abdul123@A",
-        "addresses": [
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanauth@gmail.com",
-            "phone": "2657827391",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          },
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanjaed123@gmail.com",
-            "phone": "0324440837",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          }
-        ],
-        "id": 1
-      },
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "name": "Abdulrehman Javed",
-        "email": "abdulrehmanauth@gmail.com",
-        "phone": "2657827391",
-        "street": "strret ghulshan colony",
-        "city": "Lahore",
-        "state": "punjab",
-        "pinCode": "154254"
-      },
-      "status": "pending",
-      "id": 10
-    },
-    {
-      "items": [
-        {
-          "title": "HP Pavilion 15-DK1056WM",
-          "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
-          "price": 1099,
-          "discountPercentage": 6.18,
-          "rating": 4.43,
-          "stock": 89,
-          "brand": "HP Pavilion",
-          "category": "laptops",
-          "thumbnail": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
-          "images": [
-            "https://i.dummyjson.com/data/products/10/1.jpg",
-            "https://i.dummyjson.com/data/products/10/2.jpg",
-            "https://i.dummyjson.com/data/products/10/3.jpg",
-            "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
-          ],
-          "quantity": 1,
-          "user": 1,
-          "id": 1
-        }
-      ],
-      "totalAmount": 1099,
-      "totalItems": 1,
-      "user": {
-        "email": "abdulrehmanauth@gmail.com",
-        "password": "abdul123@A",
-        "addresses": [
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanauth@gmail.com",
-            "phone": "2657827391",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          },
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanjaed123@gmail.com",
-            "phone": "0324440837",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          }
-        ],
-        "id": 1
-      },
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "name": "Abdulrehman Javed",
-        "email": "abdulrehmanauth@gmail.com",
-        "phone": "2657827391",
-        "street": "strret ghulshan colony",
-        "city": "Lahore",
-        "state": "punjab",
-        "pinCode": "154254"
-      },
-      "status": "pending",
-      "id": 11
-    },
-    {
-      "items": [
-        {
-          "title": "iPhone 9",
-          "description": "An apple mobile which is nothing like apple",
-          "price": 549,
-          "discountPercentage": 12.96,
-          "rating": 4.69,
-          "stock": 94,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/1/1.jpg",
-            "https://i.dummyjson.com/data/products/1/2.jpg",
-            "https://i.dummyjson.com/data/products/1/3.jpg",
-            "https://i.dummyjson.com/data/products/1/4.jpg",
-            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 1,
-          "id": 1
-        }
-      ],
-      "totalAmount": 549,
-      "totalItems": 1,
-      "user": {
-        "email": "abdulrehmanauth@gmail.com",
-        "password": "abdul123@A",
-        "addresses": [
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanauth@gmail.com",
-            "phone": "2657827391",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          },
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanjaed123@gmail.com",
-            "phone": "0324440837",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          }
-        ],
-        "id": 1
-      },
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "name": "Abdulrehman Javed",
-        "email": "abdulrehmanauth@gmail.com",
-        "phone": "2657827391",
-        "street": "strret ghulshan colony",
-        "city": "Lahore",
-        "state": "punjab",
-        "pinCode": "154254"
-      },
-      "status": "pending",
-      "id": 12
-    },
-    {
-      "items": [
-        {
-          "title": "iPhone 9",
-          "description": "An apple mobile which is nothing like apple",
-          "price": 549,
-          "discountPercentage": 12.96,
-          "rating": 4.69,
-          "stock": 94,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/1/1.jpg",
-            "https://i.dummyjson.com/data/products/1/2.jpg",
-            "https://i.dummyjson.com/data/products/1/3.jpg",
-            "https://i.dummyjson.com/data/products/1/4.jpg",
-            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 1,
-          "id": 1
-        },
-        {
-          "title": "Huawei P30",
-          "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
-          "price": 499,
-          "discountPercentage": 10.58,
-          "rating": 4.09,
-          "stock": 32,
-          "brand": "Huawei",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/5/1.jpg",
-            "https://i.dummyjson.com/data/products/5/2.jpg",
-            "https://i.dummyjson.com/data/products/5/3.jpg"
-          ],
-          "quantity": 1,
-          "user": 1,
-          "id": 2
-        }
-      ],
-      "totalAmount": 1048,
-      "totalItems": 2,
-      "user": {
-        "email": "abdulrehmanauth@gmail.com",
-        "password": "abdul123@A",
-        "addresses": [
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanauth@gmail.com",
-            "phone": "2657827391",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          },
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanjaed123@gmail.com",
-            "phone": "0324440837",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          }
-        ],
-        "id": 1
-      },
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "name": "Abdulrehman Javed",
-        "email": "abdulrehmanjaed123@gmail.com",
-        "phone": "0324440837",
-        "street": "strret ghulshan colony",
-        "city": "Lahore",
-        "state": "punjab",
-        "pinCode": "154254"
-      },
-      "status": "pending",
-      "id": 13
-    },
-    {
-      "items": [
-        {
-          "title": "iPhone X",
-          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-          "price": 899,
-          "discountPercentage": 17.94,
-          "rating": 4.44,
-          "stock": 34,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/2/1.jpg",
-            "https://i.dummyjson.com/data/products/2/2.jpg",
-            "https://i.dummyjson.com/data/products/2/3.jpg",
-            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 1,
-          "id": 1
-        }
-      ],
-      "totalAmount": 899,
-      "totalItems": 1,
-      "user": {
-        "email": "abdulrehmanauth@gmail.com",
-        "password": "abdul123@A",
-        "addresses": [
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanauth@gmail.com",
-            "phone": "2657827391",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          },
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanjaed123@gmail.com",
-            "phone": "0324440837",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          }
-        ],
-        "id": 1
-      },
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "name": "Abdulrehman Javed",
-        "email": "abdulrehmanauth@gmail.com",
-        "phone": "2657827391",
-        "street": "strret ghulshan colony",
-        "city": "Lahore",
-        "state": "punjab",
-        "pinCode": "154254"
-      },
-      "status": "pending",
-      "id": 14
-    },
-    {
-      "items": [
-        {
-          "title": "iPhone 9",
-          "description": "An apple mobile which is nothing like apple",
-          "price": 549,
-          "discountPercentage": 12.96,
-          "rating": 4.69,
-          "stock": 94,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/1/1.jpg",
-            "https://i.dummyjson.com/data/products/1/2.jpg",
-            "https://i.dummyjson.com/data/products/1/3.jpg",
-            "https://i.dummyjson.com/data/products/1/4.jpg",
-            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 1,
-          "id": 1
-        }
-      ],
-      "totalAmount": 549,
-      "totalItems": 1,
-      "user": {
-        "email": "abdulrehmanauth@gmail.com",
-        "password": "abdul123@A",
-        "addresses": [
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanauth@gmail.com",
-            "phone": "2657827391",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          },
-          {
-            "name": "Abdulrehman Javed",
-            "email": "abdulrehmanjaed123@gmail.com",
-            "phone": "0324440837",
-            "street": "strret ghulshan colony",
-            "city": "Lahore",
-            "state": "punjab",
-            "pinCode": "154254"
-          }
-        ],
-        "id": 1
-      },
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "name": "Abdulrehman Javed",
-        "email": "abdulrehmanauth@gmail.com",
-        "phone": "2657827391",
-        "street": "strret ghulshan colony",
-        "city": "Lahore",
-        "state": "punjab",
-        "pinCode": "154254"
-      },
-      "status": "pending",
-      "id": 15
     }
   ]
 }

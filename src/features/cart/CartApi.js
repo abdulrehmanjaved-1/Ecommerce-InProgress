@@ -17,6 +17,7 @@ export function fetchItemsByUserId(userId) {
     );
     const data = await response.json();
     resolve({ data });
+    
   });
 }
 

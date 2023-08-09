@@ -9,8 +9,8 @@ import {
   selectBrands,
   selectCategories,
   selectTotalItems,
-} from "../ProductSlice";
-import { ITEMS_PER_PAGE, discountedPrice } from "../../../app/constants";
+} from "../../../features/product/ProductSlice";
+import { ITEMS_PER_PAGE } from "../../../app/constants";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon, StarIcon } from "@heroicons/react/24/outline";
 import {
@@ -22,7 +22,6 @@ import {
 } from "@heroicons/react/20/solid";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
-import Pagination from "../../common/Pagination";
 
 const sortOptions = [
   { name: "Best Rating", sort: "rating", order: "desc", current: false },
@@ -30,15 +29,13 @@ const sortOptions = [
   { name: "Price: High to Low", sort: "price", order: "desc", current: false },
 ];
 
-
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 // const totalItems=55;
 //our product's data
 
-export default function ProductList() {
+export default function AdminProductList() {
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState({});
   const [page, setPage] = useState(1);
@@ -61,7 +58,6 @@ export default function ProductList() {
       options: brands,
     },
   ];
-
 
   const handleFilter = (e, section, option) => {
     const newFilter = { ...filter }; // Change to an object
@@ -196,12 +192,18 @@ export default function ProductList() {
               >
                 <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                   {/* Filters */}
-                  <DesktopFilter handleFilter={handleFilter} filters={filters}></DesktopFilter>
+                  <DesktopFilter
+                    handleFilter={handleFilter}
+                    filters={filters}
+                  ></DesktopFilter>
 
                   {/* Product grid */}
                   <div className="lg:col-span-3">
                     {/* these are our products */}
-                    <ProductGrid products={products} filters={filters}></ProductGrid>
+                    <ProductGrid
+                      products={products}
+                      filters={filters}
+                    ></ProductGrid>
                   </div>
                 </div>
               </section>
@@ -226,7 +228,7 @@ function MobileFilter({
   mobileFiltersOpen,
   setMobileFiltersOpen,
   handleFilter,
-  filters
+  filters,
 }) {
   return (
     <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -304,30 +306,31 @@ function MobileFilter({
                         </h3>
                         <Disclosure.Panel className="pt-6">
                           <div className="space-y-6">
-                            {section.options && section.options.map((option, optionIdx) => (
-                              <div
-                                key={option.value}
-                                className="flex items-center"
-                              >
-                                <input
-                                  id={`filter-mobile-${section.id}-${optionIdx}`}
-                                  name={`${section.id}[]`}
-                                  defaultValue={option.value}
-                                  type="checkbox"
-                                  defaultChecked={option.checked}
-                                  onChange={(e) =>
-                                    handleFilter(e, section, option)
-                                  }
-                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                />
-                                <label
-                                  htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                  className="ml-3 min-w-0 flex-1 text-gray-500"
+                            {section.options &&
+                              section.options.map((option, optionIdx) => (
+                                <div
+                                  key={option.value}
+                                  className="flex items-center"
                                 >
-                                  {option.label}
-                                </label>
-                              </div>
-                            ))}
+                                  <input
+                                    id={`filter-mobile-${section.id}-${optionIdx}`}
+                                    name={`${section.id}[]`}
+                                    defaultValue={option.value}
+                                    type="checkbox"
+                                    defaultChecked={option.checked}
+                                    onChange={(e) =>
+                                      handleFilter(e, section, option)
+                                    }
+                                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                  />
+                                  <label
+                                    htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
+                                    className="ml-3 min-w-0 flex-1 text-gray-500"
+                                  >
+                                    {option.label}
+                                  </label>
+                                </div>
+                              ))}
                           </div>
                         </Disclosure.Panel>
                       </>
@@ -372,25 +375,26 @@ function DesktopFilter({ handleFilter, filters }) {
               </h3>
               <Disclosure.Panel className="pt-6">
                 <div className="space-y-4">
-                  {section.options && section.options.map((option, optionIdx) => (
-                    <div key={option.value} className="flex items-center">
-                      <input
-                        id={`filter-${section.id}-${optionIdx}`}
-                        name={`${section.id}[]`}
-                        defaultValue={option.value}
-                        type="checkbox"
-                        defaultChecked={option.checked}
-                        onChange={(e) => handleFilter(e, section, option)}
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                      />
-                      <label
-                        htmlFor={`filter-${section.id}-${optionIdx}`}
-                        className="ml-3 text-sm text-gray-600"
-                      >
-                        {option.label}
-                      </label>
-                    </div>
-                  ))}
+                  {section.options &&
+                    section.options.map((option, optionIdx) => (
+                      <div key={option.value} className="flex items-center">
+                        <input
+                          id={`filter-${section.id}-${optionIdx}`}
+                          name={`${section.id}[]`}
+                          defaultValue={option.value}
+                          type="checkbox"
+                          defaultChecked={option.checked}
+                          onChange={(e) => handleFilter(e, section, option)}
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                        />
+                        <label
+                          htmlFor={`filter-${section.id}-${optionIdx}`}
+                          className="ml-3 text-sm text-gray-600"
+                        >
+                          {option.label}
+                        </label>
+                      </div>
+                    ))}
                 </div>
               </Disclosure.Panel>
             </>
@@ -401,20 +405,101 @@ function DesktopFilter({ handleFilter, filters }) {
   );
 }
 
+function Pagination({ page, setPage, handlePage, totalItems }) {
+  const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+  return (
+    <>
+      <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+        <div className="flex flex-1 justify-between sm:hidden">
+          <div
+            onClick={(e) => handlePage(page > 1 ? page - 1 : page)}
+            href="#"
+            className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+          >
+            Previous
+          </div>
+          <div
+            onClick={(e) => handlePage(page < totalPages ? page + 1 : page)}
+            href="#"
+            className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+          >
+            Next
+          </div>
+        </div>
+        <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+          <div>
+            <p className="text-sm text-gray-700">
+              Showing{" "}
+              <span className="font-medium">
+                {(page - 1) * ITEMS_PER_PAGE + 1}
+              </span>{" "}
+              to{" "}
+              <span className="font-medium">
+                {page * ITEMS_PER_PAGE > totalItems
+                  ? totalItems
+                  : page * ITEMS_PER_PAGE}
+              </span>{" "}
+              of <span className="font-medium">{totalItems}</span> results
+            </p>
+          </div>
+          <div>
+            <nav
+              className="isolate inline-flex -space-x-px rounded-md shadow-sm"
+              aria-label="Pagination"
+            >
+              <div
+                onClick={(e) => handlePage(page > 1 ? page - 1 : page)}
+                href="#"
+                className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+              >
+                <span className="sr-only">Previous</span>
+                <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
+              </div>
+              {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
+              {Array.from({
+                length: totalPages,
+              }).map((el, index) => (
+                <div
+                  onClick={() => handlePage(index + 1)}
+                  aria-current="page"
+                  className={`relative cursor-pointer z-10 inline-flex items-center ${
+                    index + 1 === page
+                      ? "bg-indigo-600 text-white"
+                      : "text-gray-400"
+                  } px-4 py-2 text-sm font-semibold  focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
+                >
+                  {index + 1}
+                </div>
+              ))}
 
+              <div
+                onClick={(e) => handlePage(page < totalPages ? page + 1 : page)}
+                href="#"
+                className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+              >
+                <span className="sr-only">Next</span>
+                <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
 
-function ProductGrid({ products,filters }) {
+function ProductGrid({ products, filters }) {
   return (
     <div className="bg-white">
+        <span><Link to="/admin/product-form" className="mt-1 ml- w-auto rounded-md border border-transparent bg-green-600 px-8 py-3 text-base font-medium text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                Add New Product
+              </Link></span>
       <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-          Customers also purchased
-        </h2>
-
+       
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
           {products.map((product) => (
             <Link to={`/product-details/${product.id}`}>
-              <div 
+              <div
                 key={product.id}
                 className="group relative border-solid border-2 border-gray-200 p-2"
               >
@@ -441,7 +526,9 @@ function ProductGrid({ products,filters }) {
                   <div>
                     <p className="text-sm font-medium text-gray-900">
                       $
-                      {discountedPrice(product)}
+                      {Math.round(
+                        product.price * (1 - product.discountPercentage / 100)
+                      )}
                     </p>
                     <p className="text-sm line-through font-medium text-gray-600">
                       ${product.price}
@@ -450,9 +537,13 @@ function ProductGrid({ products,filters }) {
                 </div>
                 <div>
                   {product.deleted && <p className="text-sm text-red-400">Product Deleted</p>}
-                  {product.stock<=0 && <p className="text-sm text-red-400">Out of Stock</p>}
                 </div>
               </div>
+              <Link
+              to={`/admin/product-form/edit/${product.id}`}
+              className="mt-10 flex w-auto items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                Edit Product
+              </Link>
             </Link>
           ))}
         </div>
