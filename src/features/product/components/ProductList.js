@@ -8,11 +8,14 @@ import {
   selectAllProducts,
   selectBrands,
   selectCategories,
+  selectProductListStatus,
   selectTotalItems,
 } from "../ProductSlice";
 import { ITEMS_PER_PAGE, discountedPrice } from "../../../app/constants";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon, StarIcon } from "@heroicons/react/24/outline";
+import { ThreeDots } from "react-loader-spinner";
+
 import {
   ChevronDownIcon,
   FunnelIcon,
@@ -30,8 +33,6 @@ const sortOptions = [
   { name: "Price: High to Low", sort: "price", order: "desc", current: false },
 ];
 
-
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -48,6 +49,7 @@ export default function ProductList() {
   const brands = useSelector(selectBrands);
   const categories = useSelector(selectCategories);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const status = useSelector(selectProductListStatus);
 
   const filters = [
     {
@@ -61,7 +63,6 @@ export default function ProductList() {
       options: brands,
     },
   ];
-
 
   const handleFilter = (e, section, option) => {
     const newFilter = { ...filter }; // Change to an object
@@ -109,6 +110,7 @@ export default function ProductList() {
 
   return (
     <div>
+      
       <div>
         <div className="bg-white">
           <div>
@@ -196,12 +198,19 @@ export default function ProductList() {
               >
                 <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                   {/* Filters */}
-                  <DesktopFilter handleFilter={handleFilter} filters={filters}></DesktopFilter>
+                  <DesktopFilter
+                    handleFilter={handleFilter}
+                    filters={filters}
+                  ></DesktopFilter>
 
                   {/* Product grid */}
                   <div className="lg:col-span-3">
                     {/* these are our products */}
-                    <ProductGrid products={products} filters={filters}></ProductGrid>
+                    <ProductGrid
+                      products={products}
+                      filters={filters}
+                      status={status}
+                    ></ProductGrid>
                   </div>
                 </div>
               </section>
@@ -226,7 +235,7 @@ function MobileFilter({
   mobileFiltersOpen,
   setMobileFiltersOpen,
   handleFilter,
-  filters
+  filters,
 }) {
   return (
     <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -304,30 +313,31 @@ function MobileFilter({
                         </h3>
                         <Disclosure.Panel className="pt-6">
                           <div className="space-y-6">
-                            {section.options && section.options.map((option, optionIdx) => (
-                              <div
-                                key={option.value}
-                                className="flex items-center"
-                              >
-                                <input
-                                  id={`filter-mobile-${section.id}-${optionIdx}`}
-                                  name={`${section.id}[]`}
-                                  defaultValue={option.value}
-                                  type="checkbox"
-                                  defaultChecked={option.checked}
-                                  onChange={(e) =>
-                                    handleFilter(e, section, option)
-                                  }
-                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                />
-                                <label
-                                  htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                  className="ml-3 min-w-0 flex-1 text-gray-500"
+                            {section.options &&
+                              section.options.map((option, optionIdx) => (
+                                <div
+                                  key={option.value}
+                                  className="flex items-center"
                                 >
-                                  {option.label}
-                                </label>
-                              </div>
-                            ))}
+                                  <input
+                                    id={`filter-mobile-${section.id}-${optionIdx}`}
+                                    name={`${section.id}[]`}
+                                    defaultValue={option.value}
+                                    type="checkbox"
+                                    defaultChecked={option.checked}
+                                    onChange={(e) =>
+                                      handleFilter(e, section, option)
+                                    }
+                                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                  />
+                                  <label
+                                    htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
+                                    className="ml-3 min-w-0 flex-1 text-gray-500"
+                                  >
+                                    {option.label}
+                                  </label>
+                                </div>
+                              ))}
                           </div>
                         </Disclosure.Panel>
                       </>
@@ -372,25 +382,26 @@ function DesktopFilter({ handleFilter, filters }) {
               </h3>
               <Disclosure.Panel className="pt-6">
                 <div className="space-y-4">
-                  {section.options && section.options.map((option, optionIdx) => (
-                    <div key={option.value} className="flex items-center">
-                      <input
-                        id={`filter-${section.id}-${optionIdx}`}
-                        name={`${section.id}[]`}
-                        defaultValue={option.value}
-                        type="checkbox"
-                        defaultChecked={option.checked}
-                        onChange={(e) => handleFilter(e, section, option)}
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                      />
-                      <label
-                        htmlFor={`filter-${section.id}-${optionIdx}`}
-                        className="ml-3 text-sm text-gray-600"
-                      >
-                        {option.label}
-                      </label>
-                    </div>
-                  ))}
+                  {section.options &&
+                    section.options.map((option, optionIdx) => (
+                      <div key={option.value} className="flex items-center">
+                        <input
+                          id={`filter-${section.id}-${optionIdx}`}
+                          name={`${section.id}[]`}
+                          defaultValue={option.value}
+                          type="checkbox"
+                          defaultChecked={option.checked}
+                          onChange={(e) => handleFilter(e, section, option)}
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                        />
+                        <label
+                          htmlFor={`filter-${section.id}-${optionIdx}`}
+                          className="ml-3 text-sm text-gray-600"
+                        >
+                          {option.label}
+                        </label>
+                      </div>
+                    ))}
                 </div>
               </Disclosure.Panel>
             </>
@@ -401,9 +412,7 @@ function DesktopFilter({ handleFilter, filters }) {
   );
 }
 
-
-
-function ProductGrid({ products,filters }) {
+function ProductGrid({ products, filters,status }) {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
@@ -411,10 +420,23 @@ function ProductGrid({ products,filters }) {
           Customers also purchased
         </h2>
 
+        
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+        {status === "loading" ? (
+        <ThreeDots
+          height="80"
+          width="80"
+          radius="9"
+          color="rgb(79,70,229)"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClassName=""
+          visible={true}
+        />
+      ) : null}
           {products.map((product) => (
             <Link to={`/product-details/${product.id}`}>
-              <div 
+              <div
                 key={product.id}
                 className="group relative border-solid border-2 border-gray-200 p-2"
               >
@@ -440,8 +462,7 @@ function ProductGrid({ products,filters }) {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-900">
-                      $
-                      {discountedPrice(product)}
+                      ${discountedPrice(product)}
                     </p>
                     <p className="text-sm line-through font-medium text-gray-600">
                       ${product.price}
@@ -449,8 +470,12 @@ function ProductGrid({ products,filters }) {
                   </div>
                 </div>
                 <div>
-                  {product.deleted && <p className="text-sm text-red-400">Product Deleted</p>}
-                  {product.stock<=0 && <p className="text-sm text-red-400">Out of Stock</p>}
+                  {product.deleted && (
+                    <p className="text-sm text-red-400">Product Deleted</p>
+                  )}
+                  {product.stock <= 0 && (
+                    <p className="text-sm text-red-400">Out of Stock</p>
+                  )}
                 </div>
               </div>
             </Link>

@@ -1,15 +1,15 @@
-export function fetchLoggedInUserOrders(user) {
+export function fetchLoggedInUserOrders() {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8080/orders/?user.id=${user}`);
+    const response = await fetch(`http://localhost:8080/orders/own`);
     const data = await response.json();
     resolve({ data });
   });
 }
-export function fetchLoggedInUser(userId) {
+export function fetchLoggedInUser() {
   return new Promise(async (resolve) => {
-    const response = await fetch('http://localhost:8080/user/'+userId);
+    const response = await fetch('http://localhost:8080/user/own');
     const data = await response.json();
-    resolve({ data });
+    resolve({ data }); 
   });
 }
 export function updateUser(update) {

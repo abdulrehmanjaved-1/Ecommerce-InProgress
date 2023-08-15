@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { checkUserAsync } from "../loginSlice";
+import { loginUserAsync } from "../loginSlice";
 import { Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 export default function ForgotPassword() {

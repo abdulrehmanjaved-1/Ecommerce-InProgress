@@ -5,7 +5,7 @@
       "title": "iPhone 9x",
       "description": "An apple mobile which is nothing like apple",
       "price": 549,
-      "discountPercentage": 12.96,
+      "discountPercentage": 23,
       "rating": 4.69,
       "stock": 94,
       "brand": "Apple",
@@ -16,7 +16,8 @@
         "https://i.dummyjson.com/data/products/1/2.jpg",
         "https://i.dummyjson.com/data/products/1/3.jpg",
         "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": 2,
@@ -124,7 +125,8 @@
         "https://i.dummyjson.com/data/products/7/2.jpg",
         "https://i.dummyjson.com/data/products/7/3.jpg",
         "https://i.dummyjson.com/data/products/7/thumbnail.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": 8,
@@ -2447,6 +2449,111 @@
       "quantity": 1,
       "user": 2,
       "id": 1
+    },
+    {
+      "title": "iPhone 9x",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "discountPercentage": 23,
+      "rating": 4.69,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/1/1.jpg",
+        "https://i.dummyjson.com/data/products/1/2.jpg",
+        "https://i.dummyjson.com/data/products/1/3.jpg",
+        "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+      ],
+      "productId": 1,
+      "quantity": 1,
+      "user": 2,
+      "id": 2
+    },
+    {
+      "title": "iPhone X1",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 899,
+      "discountPercentage": 17.94,
+      "rating": 4.44,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+      ],
+      "productId": 2,
+      "quantity": 1,
+      "user": 2,
+      "id": 5
+    },
+    {
+      "title": "iPhone X1",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 899,
+      "discountPercentage": 17.94,
+      "rating": 4.44,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+      ],
+      "productId": 2,
+      "quantity": 1,
+      "user": 2,
+      "id": 6
+    },
+    {
+      "title": "Samsung Universe 90",
+      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+      "price": 1249,
+      "discountPercentage": 15.46,
+      "rating": 4.09,
+      "stock": 36,
+      "brand": "Samsung",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/3/1.jpg",
+        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.britishchamber.cn%2Fen%2Fdata-privacy-and-ai-tech-updates%2F&psig=AOvVaw3VG5fort-0eAHvhUzFZ8Us&ust=1691659665785000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPCky76hz4ADFQAAAAAdAAAAABAF",
+        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fvisitorcenter%2Fdefault&psig=AOvVaw24VrzEBt7FTHnyGuIRgw9y&ust=1691659796401000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCODC5_yhz4ADFQAAAAAdAAAAABAE",
+        "https://i.dummyjson.com/data/products/3/thumbnail.jpg"
+      ],
+      "productId": 3,
+      "quantity": 1,
+      "user": 2,
+      "id": 7
+    },
+    {
+      "title": "MacBook Pro",
+      "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+      "price": 1749,
+      "discountPercentage": 11.02,
+      "rating": 4.57,
+      "stock": 83,
+      "brand": "Apple",
+      "category": "laptops",
+      "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
+      "images": [
+        "https://i.dummyjson.com/data/products/6/1.png",
+        "https://i.dummyjson.com/data/products/6/2.jpg",
+        "https://i.dummyjson.com/data/products/6/3.png",
+        "https://i.dummyjson.com/data/products/6/4.jpg"
+      ],
+      "productId": 6,
+      "quantity": 1,
+      "user": 2,
+      "id": 8
     }
   ],
   "orders": [
@@ -2726,6 +2833,135 @@
       },
       "status": "delivered",
       "id": 4
+    },
+    {
+      "items": [
+        {
+          "title": "MacBook Pro",
+          "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+          "price": 1749,
+          "discountPercentage": 11.02,
+          "rating": 4.57,
+          "stock": 83,
+          "brand": "Apple",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
+          "images": [
+            "https://i.dummyjson.com/data/products/6/1.png",
+            "https://i.dummyjson.com/data/products/6/2.jpg",
+            "https://i.dummyjson.com/data/products/6/3.png",
+            "https://i.dummyjson.com/data/products/6/4.jpg"
+          ],
+          "productId": 6,
+          "quantity": 3,
+          "user": 1,
+          "id": 9
+        }
+      ],
+      "totalAmount": 4668,
+      "totalItems": 3,
+      "user": {
+        "email": "abdulrehmanauth@gmail.com",
+        "password": "abdul123@A",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Abdulrehman Javed",
+            "email": "abdulrehmanjaed123@gmail.com",
+            "phone": "0324440838",
+            "street": "strret ghulshan colony",
+            "city": "Lahore",
+            "state": "punjab",
+            "pinCode": "154254"
+          },
+          {
+            "name": "Aysha",
+            "email": "abdul@gmail.com",
+            "phone": "0324440837",
+            "street": "strret ghulshan colony",
+            "city": "Lahore",
+            "state": "punjab",
+            "pinCode": "154254"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Aysha",
+        "email": "abdul@gmail.com",
+        "phone": "0324440837",
+        "street": "strret ghulshan colony",
+        "city": "Lahore",
+        "state": "punjab",
+        "pinCode": "154254"
+      },
+      "status": "pending",
+      "id": 5
+    },
+    {
+      "items": [
+        {
+          "title": "Huawei P30",
+          "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+          "price": 499,
+          "discountPercentage": 10.58,
+          "rating": 4.09,
+          "stock": 32,
+          "brand": "Huawei",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/5/1.jpg",
+            "https://i.dummyjson.com/data/products/5/2.jpg",
+            "https://i.dummyjson.com/data/products/5/3.jpg"
+          ],
+          "productId": 5,
+          "quantity": 1,
+          "user": 1,
+          "id": 10
+        }
+      ],
+      "totalAmount": 446,
+      "totalItems": 1,
+      "user": {
+        "email": "abdulrehmanauth@gmail.com",
+        "password": "abdul123@A",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Abdulrehman Javed",
+            "email": "abdulrehmanjaed123@gmail.com",
+            "phone": "0324440838",
+            "street": "strret ghulshan colony",
+            "city": "Lahore",
+            "state": "punjab",
+            "pinCode": "154254"
+          },
+          {
+            "name": "Aysha",
+            "email": "abdul@gmail.com",
+            "phone": "0324440837",
+            "street": "strret ghulshan colony",
+            "city": "Lahore",
+            "state": "punjab",
+            "pinCode": "154254"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Abdulrehman Javed",
+        "email": "abdulrehmanjaed123@gmail.com",
+        "phone": "0324440838",
+        "street": "strret ghulshan colony",
+        "city": "Lahore",
+        "state": "punjab",
+        "pinCode": "154254"
+      },
+      "status": "pending",
+      "id": 6
     }
   ]
 }

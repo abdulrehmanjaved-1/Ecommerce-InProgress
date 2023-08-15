@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { checkUserAsync } from "../loginSlice";
+import { loginUserAsync, selectloggedInUserToken } from "../loginSlice";
 import { Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { selectError, selectLoggedInUser } from "../loginSlice";
 export default function Login() {
   const dispatch = useDispatch();
   const error = useSelector(selectError);
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectloggedInUserToken);
   const {
     register,
     handleSubmit,
@@ -37,7 +37,7 @@ export default function Login() {
             noValidate
             onSubmit={handleSubmit((data) => {
               dispatch(
-                checkUserAsync({ email: data.email, password: data.password })
+                loginUserAsync({ email: data.email, password: data.password })
               );
               console.log(data);
             })}
@@ -68,7 +68,6 @@ export default function Login() {
                 )}
               </div>
             </div>
-
             <div>
               <div className="flex items-center justify-between">
                 <label
@@ -99,6 +98,7 @@ export default function Login() {
                   <p className="text-red-500">{errors.password.message}</p>
                 )}
               </div>
+              {error && <p className="text-red-500">{error || error.message}</p>}
             </div>
 
             <div>

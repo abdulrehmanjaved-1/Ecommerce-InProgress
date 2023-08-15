@@ -11,20 +11,20 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { updateUserAsync, selectLoggedInUser } from "../auth/loginSlice";
+import { selectLoggedInUser } from "../auth/loginSlice";
 import { createOrderAsync, selectCurrentOrder } from "../order/OrderSlice";
-import { selectUserInfo } from "../user/Userslice";
+import { selectUserInfo, updateUserAsync } from "../user/Userslice";
 import { discountedPrice } from "../../app/constants";
 
 function Checkout() {
   const [open, setOpen] = useState(true);
   const items = useSelector(selectItems);
-  const currentOrder=useSelector(selectCurrentOrder)
+  const currentOrder = useSelector(selectCurrentOrder);
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState("cash");
   const dispatch = useDispatch();
   const totalAmount = items.reduce(
-    (amount, item) => discountedPrice(item) * item.quantity + amount,
+    (amount, item) => discountedPrice(item.product) * item.quantity + amount,
     0
   );
   const user = useSelector(selectUserInfo);
@@ -43,7 +43,7 @@ function Checkout() {
 
   const handleQuantity = (e, item) => {
     console.log("yo", e.target.value, item);
-    dispatch(updateCartAsync({ ...item, quantity: +e.target.value }));
+    dispatch(updateCartAsync({ id: item.id, quantity: +e.target.value }));
   };
   const handleAddress = (e) => {
     setSelectedAddress(user.addresses[e.target.value]);
@@ -53,25 +53,37 @@ function Checkout() {
     setPaymentMethod(e.target.value);
   };
   const handleOrder = (e) => {
-    if(selectedAddress && paymentMethod){
+    if (selectedAddress && paymentMethod) {
       const order = {
         items,
         totalAmount,
         totalItems,
-        user,
+        user: user.id,
         paymentMethod,
         selectedAddress,
-        status:'pending'
+        status: "pending",
       };
       dispatch(createOrderAsync(order));
       console.log("order placed succesfully");
-    }else{
-      alert('Enter Adress and Payment Method')
-      }}
+    } else {
+      alert("Enter Adress and Payment Method");
+    }
+  };
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       {!items.length > 0 && <Navigate to="/" replace={true}></Navigate>}
-      {currentOrder && <Navigate to={`/order-success/${currentOrder.id}`} replace={true}></Navigate>}
+      {currentOrder && currentOrder.paymentMethod==='cash' && (
+        <Navigate
+          to={`/order-success/${currentOrder.id}`}
+          replace={true}
+        ></Navigate>
+      )} 
+      {currentOrder && currentOrder.paymentMethod==='card' && (
+        <Navigate
+          to={`/stripe-checkout/`}
+          replace={true}
+        ></Navigate>
+      )}
       <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
         <div className="lg:col-span-3">
           <form
@@ -255,43 +267,44 @@ function Checkout() {
                 <p className="mt-1 text-sm leading-6 text-gray-600">
                   Choose from existing address
                 </p>
-
                 <ul role="list">
-                  {user.addresses.map((address, index) => (
-                    <li
-                      key={index}
-                      className="flex justify-between px-5 gap-x-6 py-5 border-solid border-2 border-gray-200"
-                    >
-                      <div className="flex gap-x-4">
-                        <input
-                          value={index}
-                          onChange={handleAddress}
-                          name="address"
-                          type="radio"
-                          className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                        />
-                        <div className="min-w-0 flex-auto">
-                          <p className="text-sm font-semibold leading-6 text-gray-900">
-                            {address.name}
+                  {user &&
+                    user.addresses &&
+                    user.addresses.map((address, index) => (
+                      <li
+                        key={index}
+                        className="flex justify-between px-5 gap-x-6 py-5 border-solid border-2 border-gray-200"
+                      >
+                        <div className="flex gap-x-4">
+                          <input
+                            value={index}
+                            onChange={handleAddress}
+                            name="address"
+                            type="radio"
+                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                          />
+                          <div className="min-w-0 flex-auto">
+                            <p className="text-sm font-semibold leading-6 text-gray-900">
+                              {address.name}
+                            </p>
+                            <p className="mt-1 truncate text-xs leading-5 text-gray-500">
+                              {address.street}
+                            </p>
+                            <p className="mt-1 truncate text-xs leading-5 text-gray-500">
+                              {address.state}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="hidden sm:flex sm:flex-col sm:items-end">
+                          <p className="text-sm leading-6 text-gray-1000">
+                            Phone:{address.phone}
                           </p>
-                          <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-                            {address.street}
-                          </p>
-                          <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-                            {address.state}
+                          <p className="text-sm leading-6 text-gray-500">
+                            {address.pinCode}
                           </p>
                         </div>
-                      </div>
-                      <div className="hidden sm:flex sm:flex-col sm:items-end">
-                        <p className="text-sm leading-6 text-gray-1000">
-                          Phone:{address.phone}
-                        </p>
-                        <p className="text-sm leading-6 text-gray-500">
-                          {address.pinCode}
-                        </p>
-                      </div>
-                    </li>
-                  ))}
+                      </li>
+                    ))}
                 </ul>
 
                 <div className="mt-10 space-y-10">
@@ -356,8 +369,8 @@ function Checkout() {
                     <li key={item.id} className="flex py-6">
                       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                         <img
-                          src={item.thumbnail}
-                          alt={item.title}
+                          src={item.product.thumbnail}
+                          alt={item.product.title}
                           className="h-full w-full object-cover object-center"
                         />
                       </div>
@@ -366,12 +379,16 @@ function Checkout() {
                         <div>
                           <div className="flex justify-between text-base font-medium text-gray-900">
                             <h3>
-                              <a href={item.href}>{item.title}</a>
+                              <a href={item.product.href}>
+                                {item.product.title}
+                              </a>
                             </h3>
-                            <p className="ml-4">${discountedPrice(item)}</p>
+                            <p className="ml-4">
+                              ${discountedPrice(item.product)}
+                            </p>
                           </div>
                           <p className="mt-1 text-sm text-gray-500">
-                            {item.brand}
+                            {item.product.brand}
                           </p>
                         </div>
                         <div className="flex flex-1 items-end justify-between text-sm">

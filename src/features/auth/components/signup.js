@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { createUserAsync, selectLoggedInUser } from "../loginSlice";
+import { createUserAsync } from "../loginSlice";
 import { Link, Navigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { selectUserInfo } from "../../user/Userslice";
 
 export default function Signup() {
   const dispatch = useDispatch();
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo); //there was slectuserloggedin
   const {
     register,
     handleSubmit,
