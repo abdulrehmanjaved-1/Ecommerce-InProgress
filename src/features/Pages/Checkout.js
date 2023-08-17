@@ -12,19 +12,20 @@ import { Link } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { selectLoggedInUser } from "../auth/loginSlice";
-import { createOrderAsync, selectCurrentOrder } from "../order/OrderSlice";
+import { createOrderAsync, selectCurrentOrder, selectStatus } from "../order/OrderSlice";
 import { selectUserInfo, updateUserAsync } from "../user/Userslice";
-import { discountedPrice } from "../../app/constants";
+import { ThreeDots } from "react-loader-spinner";
 
 function Checkout() {
   const [open, setOpen] = useState(true);
   const items = useSelector(selectItems);
+  const status=useSelector(selectStatus)
   const currentOrder = useSelector(selectCurrentOrder);
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState("cash");
   const dispatch = useDispatch();
   const totalAmount = items.reduce(
-    (amount, item) => discountedPrice(item.product) * item.quantity + amount,
+    (amount, item) => item.product.discountPrice * item.quantity + amount,
     0
   );
   const user = useSelector(selectUserInfo);
@@ -84,6 +85,18 @@ function Checkout() {
           replace={true}
         ></Navigate>
       )}
+      {status === "loading" ? (
+                <ThreeDots
+                  height="80"
+                  width="80"
+                  radius="9"
+                  color="rgb(79,70,229)"
+                  ariaLabel="three-dots-loading"
+                  wrapperStyle={{}}
+                  wrapperClassName=""
+                  visible={true}
+                />
+              ) : null}
       <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
         <div className="lg:col-span-3">
           <form
@@ -384,7 +397,7 @@ function Checkout() {
                               </a>
                             </h3>
                             <p className="ml-4">
-                              ${discountedPrice(item.product)}
+                              ${item.product.discountPrice}
                             </p>
                           </div>
                           <p className="mt-1 text-sm text-gray-500">

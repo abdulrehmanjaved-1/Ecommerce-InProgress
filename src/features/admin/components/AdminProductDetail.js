@@ -1,53 +1,46 @@
 import { useState, useEffect } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
-import {
-  fetchProductByIdAsync,
-  selectProductById,
-} from "../../../features/product/ProductSlice";
+import { fetchProductByIdAsync, selectProductById } from "../../product/ProductSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { selectLoggedInUser } from "../../auth/loginSlice";
 import { addToCart } from "../../cart/CartApi";
-import { addToCartAsync } from "../../cart/CartSlice";
-import { discountedPrice } from "../../../app/constants";
-const colors = [
-  { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
-  { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
-  { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
-];
-const sizes = [
-  { name: "XXS", inStock: false },
-  { name: "XS", inStock: true },
-  { name: "S", inStock: true },
-  { name: "M", inStock: true },
-  { name: "L", inStock: true },
-  { name: "XL", inStock: true },
-  { name: "2XL", inStock: true },
-  { name: "3XL", inStock: true },
-];
-const highlights = [
-  "Hand cut and sewn locally",
-  "Dyed with our proprietary colors",
-  "Pre-washed & pre-shrunk",
-  "Ultra-soft 100% cotton",
-];
+import { addToCartAsync, selectItems } from "../../cart/CartSlice";
+import { useAlert } from "react-alert";
+
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function AdminProductDetail() {
-  const [selectedColor, setSelectedColor] = useState(colors[0]);
-  const [selectedSize, setSelectedSize] = useState(sizes[2]);
+export default function AdminProductDetails() {
+  const [selectedColor, setSelectedColor] = useState();
+  const [selectedSize, setSelectedSize] = useState();
   const product = useSelector(selectProductById);
+  const items = useSelector(selectItems);
+  const alert = useAlert();
   const dispatch = useDispatch();
   const params = useParams();
 
   const handleCart = (e) => {
     e.preventDefault();
-    const newItem = { ...product, quantity: 1 };
-    delete newItem["id"];
-    dispatch(addToCartAsync(newItem));
+    if (items.findIndex((item) => item.product.id === product.id) < 0) {
+      const newItem = {
+        product: product.id,
+        quantity: 1      };
+        if(selectedColor){
+          newItem.color=selectedColor;
+        }
+        if(selectedSize){
+          newItem.size=selectedSize;
+        }
+      dispatch(addToCartAsync(newItem));
+      alert.success("Item added to cart");
+    } else {
+      alert.error("Item already added");
+    }
   };
 
   useEffect(() => {
@@ -143,11 +136,8 @@ export default function AdminProductDetail() {
             {/* Options */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
-              <p className="text-3xl line-through tracking-tight text-gray-900">
-                ${product.price}
-              </p>
               <p className="text-3xl tracking-tight text-gray-900">
-                ${discountedPrice(product)}
+                ${product.discountPrice}
               </p>
 
               {/* Reviews */}
@@ -174,7 +164,7 @@ export default function AdminProductDetail() {
 
               <form className="mt-10">
                 {/* Colors */}
-                <div>
+                {product.colors && product.colors.length>0 && <div>
                   <h3 className="text-sm font-medium text-gray-900">Color</h3>
 
                   <RadioGroup
@@ -186,7 +176,7 @@ export default function AdminProductDetail() {
                       Choose a color
                     </RadioGroup.Label>
                     <div className="flex items-center space-x-3">
-                      {colors.map((color) => (
+                      {product.colors.map((color) => (
                         <RadioGroup.Option
                           key={color.name}
                           value={color}
@@ -213,50 +203,10 @@ export default function AdminProductDetail() {
                       ))}
                     </div>
                   </RadioGroup>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium text-gray-900">Size</h3>
-
-                  <RadioGroup
-                    value={selectedSize}
-                    onChange={setSelectedSize}
-                    className="mt-4"
-                  >
-                    <RadioGroup.Label className="sr-only">
-                      Choose a size
-                    </RadioGroup.Label>
-                    <div className="flex items-center space-x-3">
-                      {sizes.map((size) => (
-                        <RadioGroup.Option
-                          key={size.name}
-                          value={size}
-                          className={({ active, checked }) =>
-                            classNames(
-                              size.selectedClass,
-                              active && checked ? "ring ring-offset-1" : "",
-                              !active && checked ? "ring-2" : "",
-                              "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none"
-                            )
-                          }
-                        >
-                          <RadioGroup.Label as="span" className="sr-only">
-                            {size.name}
-                          </RadioGroup.Label>
-                          <span
-                            aria-hidden="true"
-                            className={classNames(
-                              size.class,
-                              "h-8 w-8 rounded-full border border-black border-opacity-10"
-                            )}
-                          />
-                        </RadioGroup.Option>
-                      ))}
-                    </div>
-                  </RadioGroup>
-                </div>
+                </div>}
 
                 {/* Sizes */}
-                {/* <div className="mt-10">
+                {product.sizes && product.sizes.length>0 &&<div className="mt-10">
                   <div className="flex items-center justify-between">
                     <h3 className="text-sm font-medium text-gray-900">Size</h3>
                     <a
@@ -276,7 +226,7 @@ export default function AdminProductDetail() {
                       Choose a size
                     </RadioGroup.Label>
                     <div className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
-                      {sizes.map((size) => (
+                      {product.sizes.map((size) => (
                         <RadioGroup.Option
                           key={size.name}
                           value={size}
@@ -293,9 +243,9 @@ export default function AdminProductDetail() {
                         >
                           {({ active, checked }) => (
                             <>
-                              <RadioGroup.Label as="span" className="sr-only">
+                              <RadioGroup.Label as="span">
                                 {size.name}
-                              </RadioGroup.Label>{" "}
+                              </RadioGroup.Label>
                               {size.inStock ? (
                                 <span
                                   className={classNames(
@@ -334,7 +284,7 @@ export default function AdminProductDetail() {
                       ))}
                     </div>
                   </RadioGroup>
-                </div> */}
+                </div>}
 
                 <button
                   onClick={handleCart}
@@ -358,21 +308,21 @@ export default function AdminProductDetail() {
                 </div>
               </div>
 
-              <div className="mt-10">
+              {product.highlights && <div className="mt-10">
                 <h3 className="text-sm font-medium text-gray-900">
                   Highlights
                 </h3>
 
                 <div className="mt-4">
                   <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
-                    {highlights.map((highlight) => (
+                    {product.highlights.map((highlight) => (
                       <li key={highlight} className="text-gray-400">
                         <span className="text-gray-600">{highlight}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </div>
+              </div>}
 
               <div className="mt-10">
                 <h2 className="text-sm font-medium text-gray-900">Details</h2>

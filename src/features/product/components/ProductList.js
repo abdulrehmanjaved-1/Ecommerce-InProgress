@@ -11,7 +11,7 @@ import {
   selectProductListStatus,
   selectTotalItems,
 } from "../ProductSlice";
-import { ITEMS_PER_PAGE, discountedPrice } from "../../../app/constants";
+import { ITEMS_PER_PAGE } from "../../../app/constants";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon, StarIcon } from "@heroicons/react/24/outline";
 import { ThreeDots } from "react-loader-spinner";
@@ -29,8 +29,8 @@ import Pagination from "../../common/Pagination";
 
 const sortOptions = [
   { name: "Best Rating", sort: "rating", order: "desc", current: false },
-  { name: "Price: Low to High", sort: "price", order: "asc", current: false },
-  { name: "Price: High to Low", sort: "price", order: "desc", current: false },
+  { name: "Price: Low to High", sort: "discountPrice", order: "asc", current: false },
+  { name: "Price: High to Low", sort: "discountPrice", order: "desc", current: false },
 ];
 
 function classNames(...classes) {
@@ -462,7 +462,7 @@ function ProductGrid({ products, filters,status }) {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-900">
-                      ${discountedPrice(product)}
+                      ${product.discountPrice}
                     </p>
                     <p className="text-sm line-through font-medium text-gray-600">
                       ${product.price}
