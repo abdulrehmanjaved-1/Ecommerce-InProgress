@@ -35,6 +35,7 @@ import AdminOrdersPage from "./features/Pages/AdminOrdrersPage";
 import { positions, Provider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 import StripeCheckout from "./features/Pages/StripeCheckout";
+import ResetPasswordPage from "./features/Pages/ResetPasswordPage";
 
 const router = createBrowserRouter([
   {
@@ -145,6 +146,12 @@ const router = createBrowserRouter([
     path: "/forgot-password",
     element: (
       <ForgotPasswordPage></ForgotPasswordPage>
+    ),
+  },
+  {
+    path: "/reset-password",
+    element: (
+      <ResetPasswordPage></ResetPasswordPage>
     ),
   },
   {
