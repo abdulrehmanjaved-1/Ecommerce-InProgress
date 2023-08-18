@@ -20,10 +20,14 @@ export default function Counter() {
   const [open, setOpen] = useState(true);
   const status = useSelector(selectCartStatus);
   const [openModal,setOpenModal]=useState(null);
-  const totalAmount = items.reduce(
-    (amount, item) => item.product.discountPrice * item.quantity + amount,
-    0
-  );
+  const totalAmount = items.reduce((amount, item) => {
+    if (item.product && item.product.discountPrice !== undefined) {
+      return item.product.discountPrice * item.quantity + amount;
+    } else {
+      return 10;
+    }
+  }, 0);
+  
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
 
   const handleRemove = (e, id) => {
