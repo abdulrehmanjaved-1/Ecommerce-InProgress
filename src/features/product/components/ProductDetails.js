@@ -26,6 +26,7 @@ export default function ProductDetails() {
 
   const handleCart = (e) => {
     e.preventDefault();
+    console.log('hi',items)
     if (items.findIndex((item) => item.product.id === product.id) < 0) {
       const newItem = {
         product: product.id,
@@ -36,7 +37,7 @@ export default function ProductDetails() {
         if(selectedSize){
           newItem.size=selectedSize;
         }
-      dispatch(addToCartAsync({newItem,alert}));
+      dispatch(addToCartAsync({item:newItem,alert}));
     } else {
       alert.error("Item already added");
     }
