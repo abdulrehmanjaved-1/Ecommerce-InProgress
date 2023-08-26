@@ -191,7 +191,7 @@ function Navbar({ children }) {
                     <div className="flex-shrink-0">
                       <img
                         className="h-10 w-10 rounded-full"
-                        src={userInfo.imageUrl}
+                        src="https://cdn.icon-icons.com/icons2/2643/PNG/512/male_man_people_person_avatar_white_tone_icon_159363.png"
                         alt=""
                       />
                     </div>
