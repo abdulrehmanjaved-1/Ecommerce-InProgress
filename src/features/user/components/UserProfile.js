@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUserInfo, updateUserAsync } from "../Userslice";
-import { selectLoggedInUser } from "../../auth/loginSlice";
 import { useForm } from "react-hook-form";
 export default function UserProfile() {
   const userInfo = useSelector(selectUserInfo);
@@ -12,7 +11,6 @@ export default function UserProfile() {
     register,
     handleSubmit,
     setValue,
-    formState: { errors },
     reset,
   } = useForm();
   const handleEdit = (addressupdate, index) => {

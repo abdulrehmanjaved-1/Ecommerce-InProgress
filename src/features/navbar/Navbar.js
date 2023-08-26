@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -6,10 +6,10 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectItems } from "../cart/CartSlice";
-import { selectLoggedInUser } from "../auth/loginSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchItemsBySearchAsync, selectItems } from "../cart/CartSlice";
 import { selectUserInfo } from "../user/Userslice";
+import { fetchProductByIdAsync, fetchProductsByFilterAsync, fetchProductsBySearchAsync } from "../product/ProductSlice";
 
 const navigation = [
   { name: "Products", Link: "/", user: true },
@@ -29,6 +29,16 @@ function classNames(...classes) {
 function Navbar({ children }) {
   const items = useSelector(selectItems);
   const userInfo = useSelector(selectUserInfo);
+  const dispatch=useDispatch();
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const handleSearch=(e)=>{
+    e.preventDefault()
+    setSearchQuery(e.target.value)
+  }
+  useEffect(()=>{
+    dispatch(fetchProductsByFilterAsync({searchQuery}))
+  },[searchQuery,dispatch])
 
   return (
     <>
@@ -71,6 +81,8 @@ function Navbar({ children }) {
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-4 flex items-center md:ml-6">
+                    <input type="text" onChange={handleSearch} id="searchInput" class="border rounded pl-2 mr-5 mt-5 p-2 w-full mb-4" placeholder="Search..."/>
+
                       <Link to="/carts">
                         <button
                           type="button"

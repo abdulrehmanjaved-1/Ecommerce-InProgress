@@ -7,7 +7,15 @@
 // }
 export function fetchProductById(id) {
   return new Promise(async (resolve) => {
-    const response = await fetch("/products/"+id);
+    const response = await fetch("/products/" + id);
+    const data = await response.json();
+    resolve({ data });
+  });
+}
+
+export function fetchProductsBySearch(search) {
+  return new Promise(async (resolve) => {
+    const response = await fetch(`/product/search?product=${search}`);
     const data = await response.json();
     resolve({ data });
   });
@@ -15,10 +23,10 @@ export function fetchProductById(id) {
 
 export function createProduct(product) {
   return new Promise(async (resolve) => {
-    const response = await fetch("/products/",{
-      method:'POST',
-      body:JSON.stringify(product),
-      headers:{'content-type':'application/json'},
+    const response = await fetch("/products/", {
+      method: "POST",
+      body: JSON.stringify(product),
+      headers: { "content-type": "application/json" },
     });
     const data = await response.json();
     resolve({ data });
@@ -38,7 +46,6 @@ export function updateProduct(update) {
   });
 }
 
-
 export function fetchCategories() {
   return new Promise(async (resolve) => {
     const response = await fetch("/categories");
@@ -54,32 +61,81 @@ export function fetchBrands() {
   });
 }
 
-export function fetchProductsByFilters(filter, sort, pagination,admin) {
+export function fetchProductsByFilters(searchQuery, filter, sort, pagination, admin) {
   let queryString = "";
+
   for (let key in filter) {
     const categoryValues = filter[key];
     if (categoryValues.length) {
       queryString += `${key}=${categoryValues}&`;
     }
   }
+
   for (let key in sort) {
     queryString += `${key}=${sort[key]}&`;
   }
-  console.log(pagination)
+
+  // Check if searchQuery is defined before adding it to queryString
+  if (searchQuery !== undefined) {
+    queryString += `product=${searchQuery}&`;
+  }
+
+  console.log(pagination);
+  console.log('search is', searchQuery);
 
   for (let key in pagination) {
     queryString += `${key}=${pagination[key]}&`;
   }
-  if(admin){
+
+  if (admin) {
     queryString += `admin=true`;
   }
+
   return new Promise(async (resolve) => {
-    //TODO: we will not hard-code server URL here
-    const response = await fetch(
-      "/products?" + queryString
-    );
+    // TODO: we will not hard-code server URL here
+    const response = await fetch(`/products?${queryString}`);
     const data = await response.json();
-    const totalItems = await response.headers.get('X-Total-Count')
-    resolve({data:{products:data,totalItems:+totalItems}})
+    const totalItems = await response.headers.get('X-Total-Count');
+    resolve({ data: { products: data, totalItems: +totalItems } });
   });
 }
+// export function fetchProductsByFilters(searchQuery, filter, sort, pagination, admin) {
+//   let queryString = "";
+//   for (let key in filter) {
+//     const categoryValues = filter[key];
+//     if (categoryValues.length) {
+//       queryString += `${key}=${categoryValues}&`;
+//     }
+//   }
+//   for (let key in sort) {
+//     queryString += `${key}=${sort[key]}&`;
+//   }
+//   // for (let key in searchQuery) {
+//   //   queryString += `product=${searchQuery[key]}&`;
+//   // }
+//   console.log(pagination);
+//   console.log('search is', searchQuery);
+
+//   for (let key in pagination) {
+//     queryString += `${key}=${pagination[key]}&`;
+//   }
+//   if (admin) {
+//     queryString += `admin=true`;
+//   }
+
+//   // Declare the response variable
+//   let response;
+
+//   return new Promise(async (resolve) => {
+//     // TODO: we will not hard-code server URL here
+//     if (searchQuery !== undefined) {
+//       response = await fetch(`/products?` + queryString + `product=${searchQuery}&`);
+//     } else {
+//       response = await fetch(`/products?` + queryString);
+//     }
+//     const data = await response.json();
+//     const totalItems = await response.headers.get('X-Total-Count');
+//     resolve({ data: { products: data, totalItems: +totalItems } });
+//   });
+// }
+

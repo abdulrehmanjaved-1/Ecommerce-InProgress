@@ -20,6 +20,7 @@ export function fetchItemsByUserId() {
   });
 }
 
+
 export function updateCart(update) {
   return new Promise(async (resolve) => {
     const response = await fetch("/carts/" + update.id, {

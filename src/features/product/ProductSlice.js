@@ -7,6 +7,7 @@ import {
   fetchProductById,
   createProduct,
   updateProduct,
+  fetchProductsBySearch
 } from "./ProductApi";
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
   categories: [],
   brands: [],
   selectedproduct: null,
+
 };
 
 // export const fetchAllProductsAsync = createAsyncThunk(
@@ -29,6 +31,14 @@ export const fetchProductByIdAsync = createAsyncThunk(
   "product/fetchProductById",
   async (id) => {
     const response = await fetchProductById(id);
+    return response.data;
+  }
+);
+
+export const fetchProductsBySearchAsync = createAsyncThunk(
+  "product/fetchProductsBySearch",
+  async (search) => {
+    const response = await fetchProductsBySearch(search);
     return response.data;
   }
 );
@@ -65,10 +75,10 @@ export const fetchBrandsAsync = createAsyncThunk(
 );
 export const fetchProductsByFilterAsync = createAsyncThunk(
   "product/fetchProductsByFilters",
-  async ({ filter, sort, pagination ,admin}) => {
+  async ({ searchQuery,filter, sort, pagination ,admin}) => {
     // console.log(pagination)
 
-    const response = await fetchProductsByFilters(filter, sort, pagination,admin);
+    const response = await fetchProductsByFilters(searchQuery,filter, sort, pagination,admin);
     return response.data;
   }
 );
@@ -116,6 +126,13 @@ export const productSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchProductByIdAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.selectedproduct = action.payload;
+      })
+      .addCase(fetchProductsBySearchAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchProductsBySearchAsync.fulfilled, (state, action) => {
         state.status = "idle";
         state.selectedproduct = action.payload;
       })

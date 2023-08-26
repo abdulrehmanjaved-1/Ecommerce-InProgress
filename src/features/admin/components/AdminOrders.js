@@ -73,10 +73,10 @@ function AdminOrders() {
   }, [dispatch, page, sort]);
   return (
     <div className="overflow-x-auto">
-      <div className=" bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden">
+      <div className=" bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-x-auto">
         <div className="w-full ">
           <div className="bg-white shadow-md rounded my-6">
-            <table className="w-full table-auto">
+            <table className="w-full table-auto overflow-x-auto">
               <thead>
                 <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                   <th
