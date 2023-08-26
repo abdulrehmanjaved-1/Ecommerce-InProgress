@@ -99,7 +99,7 @@ export function fetchProductsByFilters(searchQuery, filter, sort, pagination, ad
     resolve({ data: { products: data, totalItems: +totalItems } });
   });
 }
-// export function fetchProductsByFilters(searchQuery, filter, sort, pagination, admin) {
+// export function fetchProductsByFilters(searchQuery,filter, sort, pagination,admin) {
 //   let queryString = "";
 //   for (let key in filter) {
 //     const categoryValues = filter[key];
@@ -113,29 +113,28 @@ export function fetchProductsByFilters(searchQuery, filter, sort, pagination, ad
 //   // for (let key in searchQuery) {
 //   //   queryString += `product=${searchQuery[key]}&`;
 //   // }
-//   console.log(pagination);
-//   console.log('search is', searchQuery);
+//   console.log(pagination)
+//   console.log('search is',searchQuery)
 
 //   for (let key in pagination) {
 //     queryString += `${key}=${pagination[key]}&`;
 //   }
-//   if (admin) {
+//   if(admin){
 //     queryString += `admin=true`;
 //   }
-
-//   // Declare the response variable
-//   let response;
-
 //   return new Promise(async (resolve) => {
-//     // TODO: we will not hard-code server URL here
-//     if (searchQuery !== undefined) {
-//       response = await fetch(`/products?` + queryString + `product=${searchQuery}&`);
-//     } else {
-//       response = await fetch(`/products?` + queryString);
+//     //TODO: we will not hard-code server URL here
+//     if(searchQuery!==undefined){
+//       const response = await fetch(
+//         `/products?` + queryString + `product=${searchQuery}&`
+//       );
+//     }else{
+//       const response = await fetch(
+//         `/products?` + queryString + `product=${searchQuery}&`
+//       );
 //     }
 //     const data = await response.json();
-//     const totalItems = await response.headers.get('X-Total-Count');
-//     resolve({ data: { products: data, totalItems: +totalItems } });
+//     const totalItems = await response.headers.get('X-Total-Count')
+//     resolve({data:{products:data,totalItems:+totalItems}})
 //   });
 // }
-
