@@ -81,7 +81,7 @@ function Navbar({ children }) {
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-4 flex items-center md:ml-6">
-                    <input type="text" onChange={handleSearch} id="searchInput" class="border rounded pl-2 mr-5 mt-5 p-2 w-full mb-4" placeholder="Search..."/>
+                    <input type="text" onChange={handleSearch} id="searchInput" class="border rounded pl-2 mr-5 mt-5 p-2 w-full mb-4" placeholder="Search products..."/>
 
                       <Link to="/carts">
                         <button
@@ -154,11 +154,13 @@ function Navbar({ children }) {
                           className="block h-6 w-6"
                           aria-hidden="true"
                         />
+                        
+
                       ) : (
                         <Bars3Icon
                           className="block h-6 w-6"
                           aria-hidden="true"
-                        />
+                        />  
                       )}
                     </Disclosure.Button>
                   </div>
@@ -220,7 +222,7 @@ function Navbar({ children }) {
                   </div>
                   <div className="mt-3 space-y-1 px-2">
                     {userNavigation.map((item) => (
-                      <Link>
+                      <Link to={item.Link}>
                         <Disclosure.Button
                           key={item.name}
                           as="a"
@@ -231,6 +233,8 @@ function Navbar({ children }) {
                         </Disclosure.Button>
                       </Link>
                     ))}
+                    <input type="text" onChange={handleSearch} id="searchInput" class="border rounded pl-2 mr-5 mt-5 p-2 w-full mb-4" placeholder="Search products..."/>
+
                   </div>
                 </div>
               </Disclosure.Panel>
