@@ -4,10 +4,11 @@ import { RadioGroup } from "@headlessui/react";
 import { fetchProductByIdAsync, selectProductById } from "../ProductSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { selectLoggedInUser } from "../../auth/loginSlice";
+import { selectLoggedInUser, selectloggedInUserToken } from "../../auth/loginSlice";
 import { addToCart } from "../../cart/CartApi";
 import { addToCartAsync, selectItems } from "../../cart/CartSlice";
 import { useAlert } from "react-alert";
+import { Navigate } from "react-router-dom";
 
 
 
@@ -19,6 +20,8 @@ export default function ProductDetails() {
   const [selectedColor, setSelectedColor] = useState();
   const [selectedSize, setSelectedSize] = useState();
   const product = useSelector(selectProductById);
+  const user = useSelector(selectloggedInUserToken)
+
   const items = useSelector(selectItems);
   const alert = useAlert();
   const dispatch = useDispatch();
@@ -26,8 +29,10 @@ export default function ProductDetails() {
 
   const handleCart = (e) => {
     e.preventDefault();
-    console.log('hi',items)
-    if (items.findIndex((item) => item.product.id === product.id) < 0) {
+    if(!user){
+      alert.error("You need to Create an account first");
+      return <Navigate to='/login' replace={true}></Navigate>
+  }    if (items.findIndex((item) => item.product.id === product.id) < 0) {
       const newItem = {
         product: product.id,
         quantity: 1      };
